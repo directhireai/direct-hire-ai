@@ -7,13 +7,12 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "13.4.12",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "next-auth": "^4.24.0",
-    "@supabase/supabase-js": "^2.24.0",
-    "stripe": "^12.0.0",
-    "@stripe/stripe-js": "^2.4.0",
-    "resend": "^0.8.0"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react": "^18.0.0"
   }
 }
