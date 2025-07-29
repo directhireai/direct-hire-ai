@@ -1,3 +1,4 @@
+// pages/dashboard/candidate.tsx
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function CandidateDashboard() {
   }, []);
 
   if (!isClient) {
-    return null; // Don't render anything until mounted on client
+    return null; // Avoid SSR-related crash
   }
 
   return (
