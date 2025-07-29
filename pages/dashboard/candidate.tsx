@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function CandidateDashboard() {
-  const { data: session } = useSession() || {}; // fallback to avoid build crash
+  const [isClient, setIsClient] = useState(false);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Don't render anything until mounted on client
+  }
 
   return (
     <div>
