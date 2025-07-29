@@ -1,4 +1,5 @@
-// pages/dashboard/candidate.tsx
+export const dynamic = "force-dynamic"; // <-- Add this at the top
+
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
