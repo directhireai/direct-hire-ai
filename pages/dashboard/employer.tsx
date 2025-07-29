@@ -1,8 +1,19 @@
+// pages/dashboard/employer.tsx
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function EmployerDashboard() {
-  const { data: session } = useSession() || {};
+  const [isClient, setIsClient] = useState(false);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Avoid rendering during SSR
+  }
 
   return (
     <div>
