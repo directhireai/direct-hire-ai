@@ -1,18 +1,19 @@
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function CandidateDashboard() {
-  const { data: session } = useSession();
-
-  if (!session) return <p>Please log in to view your dashboard.</p>;
+  const { data: session } = useSession() || {}; // fallback to avoid build crash
 
   return (
     <div>
       <h1>Candidate Dashboard</h1>
-      <p>Welcome, {session.user?.email}</p>
-      <ul>
-        <li><a href="/profile">📝 Edit Profile</a></li>
-        <li><a href="/inbox">📬 Check Messages</a></li>
-      </ul>
+      {!session ? (
+        <p>
+          Please <Link href="/auth">log in</Link> to view your dashboard.
+        </p>
+      ) : (
+        <p>Welcome, {session.user?.email}!</p>
+      )}
     </div>
   );
 }
