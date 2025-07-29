@@ -12,7 +12,7 @@ export default function EmployerDashboard() {
   }, []);
 
   if (!isClient) {
-    return null; // Avoid rendering during SSR
+    return null; // Prevent SSR crash
   }
 
   return (
